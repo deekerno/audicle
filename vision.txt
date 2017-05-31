@@ -1,0 +1,9 @@
+Vision Statement for Group 10
+
+Group 10 is making an audio player with an incorporated visualiser that will function via machine learning.
+This product will take in an audio file and play it. While it is playing it will produce a picture that it feels is "good" based on
+past ratings viewers have given other pictures. Additionally, it will predict what genre the song is as it plays using similar 
+machine learning concepts. 
+Our product is important as it will produce identities for songs via the pictures it draws, providing a new way to think about music.
+Additionally, its ability to learn genres will allow users to find similar music to what is being played if they were not
+already familiar with the genre. 
