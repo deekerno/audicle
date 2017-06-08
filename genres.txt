@@ -1,0 +1,8 @@
+hip.hop
+metal
+classical
+electronic
+rnb
+rock.and.roll
+folk
+ambient
