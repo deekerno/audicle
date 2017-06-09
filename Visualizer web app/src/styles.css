@@ -1,0 +1,78 @@
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  /*background-color: #cfd8dc;*/
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+/* Classes */
+.center {
+  position: fixed;
+  margin: auto;
+  width: 50%;
+  left: 25%;
+  padding: 10px;
+}
+.right-button {
+  position: absolute;
+  margin: auto;
+  width: 100px;
+  height: 70px;
+  right: 10%;
+  top: 40%;
+}
+.left-button {
+  position: absolute;
+  margin: auto;
+  width: 100px;
+  height: 70px;
+  left: 10%;
+  top: 40%;
+}
+.center-title {
+  margin: auto;
+}
+.greyed-out {
+  animation: fadeout .5s linear normal;
+  -webkit-opacity: .25;
+  -moz-opacity: .25;
+  opacity: .25;
+}
+.greyed-out:hover {
+  animation: fadein .3s linear normal;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+@keyframes fadein {
+  0% { opacity: .25; }
+  100% { opacity: 1; }
+}
+@keyframes fadeout {
+  0% { opacity: 1; }
+  100% { opacity: .25; }
+}
+/* IDs */
+#footer {
+  position: fixed;
+  /*margin: auto;*/
+  bottom: 2%;
+  width: 50%;
+  height: 10%;
+  /*border: 3px solid #8AC007;*/
+}
