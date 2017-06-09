@@ -1,0 +1,10 @@
+keras
+theano
+tornado
+youtube-dl
+librosa
+numpy
+scipy
+pyyaml
+h5py
+ffmpy

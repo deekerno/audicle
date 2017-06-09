@@ -6,3 +6,6 @@ rnb
 rock.and.roll
 folk
 ambient
+country
+pop
+jazz
