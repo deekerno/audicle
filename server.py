@@ -4,6 +4,7 @@ import time
 import tornado
 import tornado.ioloop
 import tornado.web
+import youtube_dl as ytdl
 
 WEB_STUFF = os.path.join(os.path.dirname(__file__), 'web_stuff')
 UPLOAD_DIR = os.path.join(os.path.dirname(__file__), 'uploads')
@@ -15,7 +16,12 @@ class MainHandler(tornado.web.RequestHandler):
 
 class UploadHandler(tornado.web.RequestHandler):
 	def post(self):
-		# Fill me in
+		# Probably need an Ajax call before we can properly do this
+
+class YouTubeHandler(tornado.web.RequestHandler):
+	def post(self):
+		# Needs work here
+		
 
 if __name__ == "__main__":
 	app = tornado.web.Application([
