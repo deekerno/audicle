@@ -50,6 +50,9 @@ def index():
 def upload():
     if request.method == 'POST' and 'audio' in request.files:
         f = songs.save(request.files['song'])
+        file = Song(filename=f, user=None)
+        file.store()
+        return render_template('index.html')
 
 
 @app.route('/youtube', methods=['GET', 'POST'])

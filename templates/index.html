@@ -1,18 +1,24 @@
-{% extends "layout.html" %}
-{% block body %}
-<div id="explanation">
-    <p>This is a project for COP4331 (Summer 2017) at UCF. A work in progress</p>
-</div>
-<div id="upload">
-    <form enctype="multipart/form-data" action="{{ url_for('upload') }}" method="post">
-      	<input name="file_choice" type="file">
-    </form>
-</div>
-<br>
-<br>
-<div id="link-supply">
-  	<form action="{{ url_for('youtube') }}" method="post">
-   		<input type="url" name="link" placeholder="Enter a YouTube URL">
-   	</form>
-</div>
-{% endblock %}
+<!doctype html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+		<script src="http://code.angularjs.org/1.5.3/angular-route.min.js"></script>
+		<script src="/static/js/app.js"></script>
+		<link rel="stylesheet" href="/static/css/style.css" />
+    </head>
+    <body ng-app="myApp">
+		<div id="upload">
+    		<form enctype="multipart/form-data" action="{{ url_for('upload') }}" method="post">
+      			<input name="audio" type="file">
+    		</form>
+	</div>
+	<br>
+	<br>
+	<div id="link-supply">
+  		<form action="{{ url_for('youtube') }}" method="post">
+   			<input type="url" name="link" placeholder="Enter a YouTube URL">
+   		</form>
+   		</div>
+		<div ng-view></div>
+    </body>
+</html>

@@ -9,3 +9,4 @@ scipy
 pyyaml
 h5py
 ffmpy
+matplotlib
