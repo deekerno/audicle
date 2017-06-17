@@ -1,9 +1,10 @@
+numpy
 keras
 theano
-tornado
+flask
+flask-uploads
 youtube-dl
 librosa
-numpy
 scipy
 pyyaml
 h5py
