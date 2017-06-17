@@ -10,8 +10,6 @@ UPLOADS_DEFAULT_DEST = os.path.join(os.path.dirname(__file__), 'uploads')
 YT_DOWNLOADS = os.path.join(os.path.dirname(__file__), 'yt_downloads')
 
 
-# youtube-dl spits out a metric ton of information, so we define a logging
-# object to handle all the spam
 class AppLogger(object):
     def debug(self, msg):
         pass
@@ -37,6 +35,8 @@ app = Flask(__name__)
 app.config['UPLOADS_DEFAULT_DEST'] = UPLOADS_DEFAULT_DEST
 songs = UploadSet('songs', AUDIO)
 
+# Configuring the app so that only audio uploads are possible. Formats
+# include mp3, aac, wav, opus, etc.
 UploadConfiguration(app, songs)
 patch_request_class(app)
 
