@@ -1,0 +1,9 @@
+<div>
+    <h1>Test Youtube-dl Component</h1>
+
+    <form (ngSubmit)="downloadYoutubeUrl()" [formGroup]="myForm">
+        <input id="youtube_url" type="text" placeholder="Youtube URL" class="form-control" formControlName="youtube_url">
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
