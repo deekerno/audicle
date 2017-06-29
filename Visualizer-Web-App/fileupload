@@ -1,0 +1,50 @@
+//javascript for handling upload, should work?
+//followed a couple tutorials, this is the end result.
+
+var webApp = angular.module('webApp', []);
+
+webApp.directive('fileModel', ['$parse', function ($parse) {
+    return {
+
+        //restricts directive to attribute only
+        restrict: 'A',
+
+        //link defines the directive functionality
+        link: function(scope, element, attrs) {
+            var model = $parse(attrs.fileModel);
+            var modelSet = model.assign;
+
+            element.bind('change', function(){
+                scope.$apply(function(){
+                    modelSet(scope, element[0].files[0]);
+                });
+            });
+        }
+    };
+}]);
+
+webApp.service('fileUpload', ['$http', function ($http) {
+    this.uploadFileToUrl = function(file, uploadUrl){
+        var formdata = new FormData();
+        formdata.append('file', file);
+        $http.post(uploadUrl, formdata, {
+            transformRequest: angular.identity,
+        })
+        .success(function(){
+        })
+        .error(function(){
+        });
+    }
+}]);
+
+webApp.controller('myCtrl', ['$scope', 'fileUpload', function($scope, fileUpload){
+
+    $scope.uploadFile = function(){
+        var file = $scope.myFile;
+        console.log('file is ' );
+        console.dir(file);
+        var uploadUrl = "/upload";
+        fileUpload.uploadFileToUrl(file, uploadUrl);
+    };
+
+}]);
