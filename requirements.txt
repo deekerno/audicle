@@ -1,3 +1,4 @@
+matplotlib
 keras
 theano
 tornado
