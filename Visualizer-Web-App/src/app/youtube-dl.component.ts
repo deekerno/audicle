@@ -12,7 +12,6 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 export class YoutubeDlComponent {
 
     public myForm: FormGroup;
-    public isLoading = false;
 
     constructor(private service: YoutubeDlService, private router: Router) {
         let group: any = {};
@@ -21,12 +20,10 @@ export class YoutubeDlComponent {
     }
 
     public downloadYoutubeUrl() {
-        this.isLoading = true;
         let body = JSON.stringify({
             url: this.myForm.controls['youtube_url'].value,
         });
         console.log('youtube-dl.component url:', this.myForm.controls['youtube_url'].value);
-        console.log('isLoading:', this.isLoading);
         this.service.downloadYoutubeUrl(body).subscribe((data) => {
             this.router.navigate(['/'])
         });
