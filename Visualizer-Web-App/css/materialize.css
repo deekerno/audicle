@@ -2379,6 +2379,10 @@ textarea {
   /* 3 */
 }
 
+form input{
+
+}
+
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
