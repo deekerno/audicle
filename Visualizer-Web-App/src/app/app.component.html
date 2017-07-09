@@ -1,14 +1,24 @@
-<div class="greyed-out-fingerprint fixed-action-btn click-to-toggle">
-    <a class="btn-floating btn-large waves-effect waves-blue waves-light blue" >
-      <i class="material-icons">fingerprint</i>
-    </a>
-    <ul>
-      <li><a class="btn-floating btn-large waves-effect waves-red red pulse" onclick="Materialize.toast('Really disliked...', 3000, 'rounded')"><i class="material-icons">sentiment_very_dissatisfied</i></a></li>
-      <li><a class="btn-floating btn-large waves-effect waves-orange orange pulse" onclick="Materialize.toast('Disliked...', 3000, 'rounded')"><i class="material-icons">sentiment_dissatisfied</i></a></li>
-      <li><a class="btn-floating btn-large waves-effect waves-yellow yellow darken-1 pulse" onclick="Materialize.toast('Liked...', 3000, 'rounded')"><i class="material-icons">sentiment_satisfied</i></a></li>
-      <li><a class="btn-floating btn-large waves-effect waves-green green pulse" onclick="Materialize.toast('Loved...', 3000, 'rounded')"><i class="material-icons">sentiment_very_satisfied</i></a></li>
-    </ul>
-  </div>
-<div id = "footer">
-<youtube-dl></youtube-dl>
+<div id="toolbar">
+    <table>
+        <tr>
+            <td height="150px">
+                <a (click)="onClick()" class="waves-effect waves-light waves-blue btn-floating btn-large blue"><i class="large material-icons">swap_vert</i></a>
+            </td>
+            <td height="150px">
+                <div *ngIf="toggle" class="col s3 m3 l3"><youtube-dl></youtube-dl></div>
+                <div *ngIf="!toggle" class="col s3 m3 l3"><file-upload></file-upload></div>
+            </td>
+            <td class="col s3 m3 l3 greyed-out-fingerprint fixed-action-btn click-to-toggle">
+                <a class="btn-floating btn-large waves-effect waves-blue waves-light blue" >
+                    <i class="material-icons">fingerprint</i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating btn-large waves-effect waves-red red pulse" onclick="Materialize.toast('Really disliked...', 3000, 'rounded')"><i class="material-icons">sentiment_very_dissatisfied</i></a></li>
+                    <li><a class="btn-floating btn-large waves-effect waves-orange orange pulse" onclick="Materialize.toast('Disliked...', 3000, 'rounded')"><i class="material-icons">sentiment_dissatisfied</i></a></li>
+                    <li><a class="btn-floating btn-large waves-effect waves-yellow yellow darken-1 pulse" onclick="Materialize.toast('Liked...', 3000, 'rounded')"><i class="material-icons">sentiment_satisfied</i></a></li>
+                    <li><a class="btn-floating btn-large waves-effect waves-green green pulse" onclick="Materialize.toast('Loved...', 3000, 'rounded')"><i class="material-icons">sentiment_very_satisfied</i></a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 </div>

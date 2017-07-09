@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { YoutubeDlComponent } from "./youtube-dl.component";
+// import { YoutubeDlComponent } from "./youtube-dl.component";
 
 export class YouTubeLinking {
   link: string
@@ -11,6 +11,12 @@ export class YouTubeLinking {
 })
 
 export class AppComponent {
+
+  toggle = true;
+
+  onClick() {
+    this.toggle = !this.toggle;
+  };
 
   youtubeLink: YouTubeLinking = {
     link: 'empty'
