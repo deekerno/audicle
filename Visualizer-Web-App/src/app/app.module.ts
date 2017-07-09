@@ -6,11 +6,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { RouterModule } from "@angular/router";
 import { ROUTES } from './app.routes'
+import { SlideMenuComponent } from "./slide-menu.component"
 
 @NgModule({
   declarations: [
     AppComponent,
-    YoutubeDlComponent
+    YoutubeDlComponent,
+    SlideMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,6 @@ import { ROUTES } from './app.routes'
     RouterModule.forRoot(ROUTES)
   ],
   providers: [],
-  bootstrap: [AppComponent, YoutubeDlComponent]
+  bootstrap: [AppComponent, YoutubeDlComponent, SlideMenuComponent]
 })
 export class AppModule { }
