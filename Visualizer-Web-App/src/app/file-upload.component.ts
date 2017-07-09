@@ -16,6 +16,7 @@ export class FileUploadComponent {
     }
 
     onChange(event) {
+        console.log('fired');
         let files: FileList =  event.srcElement.files;
         this.file = files[0];
         this.service.uploadFile(this.file).subscribe((data) => {

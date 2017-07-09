@@ -1,3 +1,9 @@
-<div>
-    <input id="file_upload" type="file" (change)="onChange($event)" placeholder="Upload File" style="color: white">
+<div class="file-field input-field">
+    <div class="btn-large waves-effect waves-blue waves-light blue">
+        <span>File</span>
+        <input type="file" (change)="onChange($event)">
+    </div>
+    <div class="file-path-wrapper">
+        <input id="file_upload" class="file-path validate" type="text" placeholder="Upload File" style="color: white">
+    </div>
 </div>
