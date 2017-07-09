@@ -13,13 +13,8 @@ export class YouTubeLinking {
 
 export class AppComponent {
 
-  toggle = true;
-
-  onClick() {
-    this.toggle = !this.toggle;
-  };
-
   youtubeLink: YouTubeLinking = {
     link: 'empty'
   };
+
 }

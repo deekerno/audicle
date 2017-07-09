@@ -2,10 +2,34 @@
   <i class="material-icons">menu</i>
 </a>
 
-<ul id="slide-out" class="side-nav fixed">
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
+<ul id="slide-out" class="side-nav">
+    <li><h1>Music Visualizer (replace with good name)</h1></li>
     <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li><a class="subheader">Upload songs</a></li>
+    <li>
+      <table>
+          <tr>
+              <th>
+                  <div class="switch center">
+                      <label>
+                          Url
+                          <input type="checkbox">
+                          <span (click)="onClick()" class="lever"></span>
+                          File
+                      </label>
+                  </div>
+                  <!--<a (click)="onClick()" class="waves-effect waves-light waves-blue btn-large blue"><i class="large material-icons">swap_vert</i></a>-->
+              </th>
+          </tr>
+          <tr>
+              <td>
+                  <div *ngIf="toggle" class="col s3 m3 l3"><youtube-dl></youtube-dl></div>
+                  <div *ngIf="!toggle" class="col s3 m3 l3"><file-upload></file-upload></div>
+              </td>
+
+          </tr>
+      </table>
+    </li>
+    <li><div class="divider"></div></li>
+
   </ul>

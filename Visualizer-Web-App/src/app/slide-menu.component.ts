@@ -8,9 +8,22 @@ declare var jQuery: any;
 })
 
 export class SlideMenuComponent implements AfterViewInit {
+
+  toggle = true;
+
   @ViewChild('slide-menu') slideMenu: ElementRef;
 
   ngAfterViewInit() {
-    jQuery(".button-collapse").sideNav();
+    jQuery('.button-collapse').sideNav({
+      menuWidth: 350,
+      edge: 'left',
+      closeOnClick: true,
+      draggable: true
+    });
   }
+
+  onClick() {
+    this.toggle = !this.toggle;
+  };
+
 }
