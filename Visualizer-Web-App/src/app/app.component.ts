@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { YoutubeDlComponent } from "./youtube-dl.component";
-import { SlideMenuComponent } from "./slide-menu.component"
+// import { YoutubeDlComponent } from "./youtube-dl.component";
+import { SlideMenuComponent } from "./slide-menu.component";
 
 export class YouTubeLinking {
-  link: string
+  link: string;
 }
 
 @Component({
@@ -13,8 +13,13 @@ export class YouTubeLinking {
 
 export class AppComponent {
 
+  toggle = true;
+
+  onClick() {
+    this.toggle = !this.toggle;
+  };
+
   youtubeLink: YouTubeLinking = {
     link: 'empty'
   };
-
 }

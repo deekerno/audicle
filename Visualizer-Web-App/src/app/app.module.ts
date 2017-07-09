@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { YoutubeDlComponent } from './youtube-dl.component';
+import { FileUploadComponent } from './file-upload.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { RouterModule } from "@angular/router";
@@ -12,7 +13,8 @@ import { SlideMenuComponent } from "./slide-menu.component"
   declarations: [
     AppComponent,
     YoutubeDlComponent,
-    SlideMenuComponent
+    SlideMenuComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,3 @@
-<div>
-    <form class="form" (ngSubmit)="downloadYoutubeUrl()" [formGroup]="myForm">
-        <input id="youtube_url" type="text" placeholder="Youtube URL" class="form-control" formControlName="youtube_url" style="color: white">
-        <button type="submit">Submit</button>
-    </form>
-</div>
+<form class="form input-field" (keydown)="keyDownFunction($event)" [formGroup]="myForm">
+    <input id="youtube_url" type="text" placeholder="Youtube Url" class="form-control" formControlName="youtube_url" style="color: white">
+</form>
