@@ -3,9 +3,11 @@ body {
   background-color: white;
 }
 h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+  color: blue;
+  /*font-size: 250%;*/
+}
+h2 {
+  color: blue;
 }
 button {
   font-family: Arial;
@@ -68,9 +70,6 @@ button:disabled {
   background-color: orange;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
-.center-title {
-  margin: auto;
-}
 .greyed-out {
   animation: fadeout .5s linear normal;
   -webkit-opacity: .25;
@@ -104,6 +103,18 @@ button:disabled {
   100% { opacity: .5; }
 }
 /* IDs */
+#title {
+  font-size: 250%;
+}
+
+#sub-title {
+  padding-left: 5px;
+}
+
+#sub-title-button {
+  padding-left: 5px;
+}
+
 #footer {
   position: fixed;
   /*margin: auto;*/
@@ -112,6 +123,14 @@ button:disabled {
   padding-left: 20%;
   height: 10%;
   /*border: 3px solid #8AC007;*/
+}
+
+#footer-left-align {
+  position: fixed;
+  bottom: 2%;
+  width: 3%;
+  padding-left: 1%;
+  height: 5.5%;
 }
 
 #toolbar {

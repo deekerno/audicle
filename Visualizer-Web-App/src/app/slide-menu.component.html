@@ -1,11 +1,18 @@
-<a href="#" data-activates="slide-out" class="button-collapse show-on-large">
+<div class = "greyed-out-fingerprint" id = "footer-left-align">
+<a href="#" data-activates="slide-out" class="btn-floating btn-large waves-effect waves-blue waves-light blue button-collapse show-on-large">
   <i class="material-icons">menu</i>
 </a>
+</div>
 
 <ul id="slide-out" class="side-nav">
-    <li><h1>Music Visualizer (replace with good name)</h1></li>
+    <li><h2 class="center-align">Audicle</h2></li>
     <li><div class="divider"></div></li>
-    <li><a class="subheader">Upload songs</a></li>
+    <li><div class="divider"></div></li>
+    <li>
+      <div id="sub-title">
+        <h5 class="left-align">Upload music</h5>
+      </div>
+    </li>
     <li>
       <table>
           <tr>
@@ -26,10 +33,7 @@
                   <div *ngIf="toggle" class="col s3 m3 l3"><youtube-dl></youtube-dl></div>
                   <div *ngIf="!toggle" class="col s3 m3 l3"><file-upload></file-upload></div>
               </td>
-
           </tr>
       </table>
     </li>
-    <li><div class="divider"></div></li>
-
   </ul>

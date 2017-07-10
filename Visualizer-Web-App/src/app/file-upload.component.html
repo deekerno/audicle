@@ -1,9 +1,20 @@
-<div class="file-field input-field">
-    <div class="btn-large waves-effect waves-blue waves-light blue">
-        <span>File</span>
-        <input type="file" (change)="onChange($event)">
+<ul>
+  <li>
+    <div class="file-field input-field sub-title">
+      <div class="btn-large waves-effect waves-blue waves-light blue">
+          <span>File</span>
+          <input type="file" (change)="onChange($event)">
+      </div>
+      <div class="file-path-wrapper">
+          <input id="file_upload" class="file-path validate" type="text" placeholder="Upload File" style="color: white">
+      </div>
     </div>
-    <div class="file-path-wrapper">
-        <input id="file_upload" class="file-path validate" type="text" placeholder="Upload File" style="color: white">
+  </li>
+  <li>
+    <div id="sub-title-button">
+      <button class="btn blue waves-effect waves-blue waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
     </div>
-</div>
+  </li>
+</ul>
