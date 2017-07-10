@@ -17,4 +17,9 @@ import os
 
 
 SEED = 4331    # random seed for the network
-NUM_LAYERS = 3
+NUM_LAYERS = 3 # number of conv-act-pool layers before dropout
+FILTER_LENGTH = 5
+CONV_FILTER_COUNT = 256
+LSTM_COUNT = 256
+BATCH_SIZE = 32
+EPOCH_COUNT = 100
