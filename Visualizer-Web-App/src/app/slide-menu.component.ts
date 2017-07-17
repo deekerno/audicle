@@ -9,8 +9,6 @@ declare var jQuery: any;
 
 export class SlideMenuComponent implements AfterViewInit {
 
-  toggle = true;
-
   @ViewChild('slide-menu') slideMenu: ElementRef;
 
   ngAfterViewInit() {
@@ -21,6 +19,8 @@ export class SlideMenuComponent implements AfterViewInit {
       draggable: true
     });
   }
+
+  toggle = true;
 
   onClick() {
     this.toggle = !this.toggle;

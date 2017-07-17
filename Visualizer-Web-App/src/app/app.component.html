@@ -1,5 +1,5 @@
-<div class="greyed-out-fingerprint fixed-action-btn click-to-toggle">
-    <a class="btn-floating btn-large waves-effect waves-blue waves-light blue" >
+<div class="fixed-action-btn click-to-toggle greyed-out-fingerprint">
+    <a id="fingerprint-button" class="btn-floating btn-large blue waves-effect waves-blue waves-light">
         <i class="material-icons">fingerprint</i>
     </a>
     <ul>
@@ -11,4 +11,15 @@
 </div>
 <div>
   <slide-menu></slide-menu>
+</div>
+
+<!-- Tap Target Structure -->
+<div class="tap-target" data-activates="fingerprint-button">
+  <div class="tap-target-content">
+    <h5>welcome to Audicle</h5>
+    <p>To see your music uniquely, just start with this fingerprint button right here..</p>
+  </div>
+  <div id="intro-ok-button" class="valign-wrapper">
+    <button class="btn btn-large waves-effect">Okay.</button>
+  </div>
 </div>
