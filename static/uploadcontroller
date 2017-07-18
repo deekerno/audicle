@@ -1,0 +1,7 @@
+//html for handling upload button, should work with fileupload?
+//who knows? not me!
+
+<div ng-controller = "myCtrl">
+    <input type="file" file-model="myFile"/>
+    <button ng-click="uploadFile()">Upload File</button>
+</div>
