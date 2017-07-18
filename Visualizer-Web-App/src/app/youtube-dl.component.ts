@@ -19,6 +19,13 @@ export class YoutubeDlComponent {
         this.myForm = new FormGroup(group);
     }
 
+    public keyDownFunction(event) {
+      if (event.keyCode == 13)
+      {
+          this.downloadYoutubeUrl();
+      }
+    }
+
     public downloadYoutubeUrl() {
         let body = JSON.stringify({
             url: this.myForm.controls['youtube_url'].value,
