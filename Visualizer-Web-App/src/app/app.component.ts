@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 // import { YoutubeDlComponent } from "./youtube-dl.component";
 import { SlideMenuComponent } from "./slide-menu.component";
+import { VisualizerComponent } from "./visualizer.component";
 
 declare var jQuery: any;
 
