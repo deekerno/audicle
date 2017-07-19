@@ -6,7 +6,7 @@ Button hover Orange: ff9800
  */
 
 body {
-  background-color: white;
+  /*background-color: white;*/
   display: flex;
   min-height: 100vh;
   flex-direction: column;

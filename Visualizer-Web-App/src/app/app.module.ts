@@ -8,22 +8,27 @@ import { HttpModule } from "@angular/http";
 import { RouterModule } from "@angular/router";
 import { ROUTES } from './app.routes'
 import { SlideMenuComponent } from "./slide-menu.component"
+import { VisualizerComponent } from "./visualizer.component";
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     YoutubeDlComponent,
     SlideMenuComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    VisualizerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
   ],
   providers: [],
-  bootstrap: [AppComponent, YoutubeDlComponent, SlideMenuComponent]
+  bootstrap: [AppComponent, YoutubeDlComponent, SlideMenuComponent, VisualizerComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
+
 export class AppModule { }
