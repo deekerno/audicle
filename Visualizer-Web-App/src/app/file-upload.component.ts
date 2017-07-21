@@ -1,25 +1,37 @@
 import { Component, ElementRef } from '@angular/core';
 import { FileUploadService } from './file-upload.service';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
+import { AudioPlayerService } from './audio-player.service';
 
 @Component({
     selector: 'file-upload',
     templateUrl: './file-upload.component.html',
-    providers: [ FileUploadService, ]
+    providers: [ FileUploadService, AudioPlayerService ]
 })
 
 export class FileUploadComponent {
 
-    file: File;
+    private file: File;
+    private song;
 
-    constructor(private service: FileUploadService, private router: Router) {
+    constructor(private UploadService: FileUploadService, private router: Router, private sanitizer: DomSanitizer, private AudioService: AudioPlayerService) {
+        this.song = this.AudioService.userAudio;
     }
 
     onChange(event) {
         console.log('fired');
         let files: FileList =  event.srcElement.files;
         this.file = files[0];
-        this.service.uploadFile(this.file).subscribe((data) => {
+        this.song = this.sanitize(URL.createObjectURL(this.file));
+    }
+
+    sanitize(url:string){
+        return this.sanitizer.bypassSecurityTrustUrl(url);
+    }
+
+    sendFile() {
+        this.UploadService.uploadFile(this.song).subscribe((data) => {
             this.router.navigate(['/'])
         });
     }
