@@ -1,7 +1,8 @@
 numpy
 keras
-theano
+tensorflow
 flask
+flask-cors
 flask-uploads
 youtube-dl
 librosa
@@ -10,3 +11,5 @@ pyyaml
 h5py
 ffmpy
 matplotlib
+pandas
+sklearn
