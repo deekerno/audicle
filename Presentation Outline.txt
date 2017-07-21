@@ -1,0 +1,133 @@
+﻿Audicle: A Music Visualizer and Genre Recognizer That Learns
+ 
+Group #10
+ 
+Alexander Decurnous, Clay Szlosek, Ryan Rossbach, Jesse Spencer, Thomas Angelo
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Purpose and Motivation
+ 
+ Our group decided collectively that an application which involved music and sound processing was something that interested us all. While we came up with many other ideas, the common ground between every member was a love for music. From the idea of Music, the group spawned an idea of a visualizer that was completely unique in its presentation and actually learned through user input. 
+
+
+Many of the current visualizers found in common music applications revolve around static designs with minimal customizability. The fact that most visualizations don’t change over time create a static environment for music listening which grows stale over time. In the case of Audicle, one could potentially have limitless visualizations for different genres and songs, which hone in on user preferences. The goal was to create visualizations which were actually worth watching for the user.
+ 
+Include alternatives and why yours is better
+ 
+In the case of simple music visualizers, one can find examples in most common music players. The key thing to recognize is how static the visuals are, and how they don’t vary much when presented with different genres or types of music. Generally, one plays with a visualizer for a few minutes, and then either moves on to another one or decides against the idea altogether and browses the internet.
+
+
+User stories and requirements
+
+
+
+
+As an audiophile, I want to see an abstract visualization of my music.
+	As a user, I want to upload a song, so that it can be analyzed by the web app
+	As a user, I want to receive a genre classification of an uploaded song, so that I may find out what genre the song is
+	As a user, I want to select a pre-supplied song, so that I can use the web app if I am unable to upload a file
+	As a user, I want to supply a YouTube link to the web app, so that I can use the web app if I am unable to upload a file
+	As a administrator, I want to log web app usage, so that I can figure how the app is being used and compile statistics
+	As a developer, I want to save analyses of user-supplied songs, so that they can be used to further train the neural network
+	As a user, I want to be able to approve or disapprove the generated (image/genre), so that I receive more (desirable/correct) results going forward
+	As a developer, I want to maintain a database of users so returning users can return to the visualization they previously trained.
+	As a developer, I want to create a rendering with a range of variability, so that user input can influence learning on a wide spectrum.
+	As a user, I want to have quick and easy access to controls that also get out of the way when I don't want to see them, so that my visualizer experience is intuitive but uninterrupted.
+	
+
+
+
+
+
+System design (including architecture and UML diagrams)
+
+
+The design focuses on using the Python library libROSA to process the audio file into melspec data, combined with a-frame to push the visuals to the front-end. On the back-end we’re using Keras and Theano to train out system for genre recognition (not done at runtime). Pickles in Python are being used in lieu of MongoDB in order to package up the data for passing to our genre training system. Additionally, we’re using a simple webserver via Flask to host on a webpage.
+
+
+ UML-image.png 
+
+
+
+
+
+
+
+
+
+Technologies used
+ 
+* Angular - app frontend
+* Flask - app backend
+* Keras - framework for defining our neural networks
+* LibROSA - used to generate spectrograms for use in the detection network
+* Theano - underlying engine for Keras
+* YouTube-dl - used to process YouTube links for download
+* A-frame - javascript visualization and 3D framework
+        
+ 
+
+
+Primary algorithms
+
+
+        The machine learning pickling and analysis.
+        Abstracting the libROSA numpy array to the visuals.
+ 
+Testing Methods and Procedures
+
+
+Unit tests were developed for the sound processing engine, machine learning and training system, and javascript-based front-end visualizations. The sound processing was progressively built up over time due to the need to understand how audio files were digitally stored. In the case of the machine-learning and training of the genre recognition, we basically had to have a waterfall approach, but the pickle process in Python was able to be unit tested for success. On the front-end, we established individual tests for the hosting of the web server, displaying the angular app and rating system, as well as the visualizations themselves and user feedback.
+
+
+Future plans for the software
+
+
+In the future we would like to perfect the visualization aspect and get better at predicting what users will enjoy in their visuals. In the current state, the visualisation analysis is in its infancy and requires vast amounts of user input in order for use to have a well-trained system that consistently produces quality visualizations.
+
+
+Live Demo
+
+
+Pray to the demo gods.
+
+
+Wrap-up and Questions
+ 
+Hi, any questions?
