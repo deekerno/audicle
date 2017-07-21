@@ -119,6 +119,9 @@ main {
   padding-bottom: 30px;
   color: #0088FF;
 }
+#logo {
+  text-align: center;
+}
 #upload-title {
   padding-top: 13px;
   padding-bottom: 13px;
