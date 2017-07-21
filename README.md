@@ -10,6 +10,7 @@ Processes of Object-Oriented Development
 [Sprint 3 Backlog](https://docs.google.com/spreadsheets/d/1f2owcjyC_3LZBFHurfBAq7Nc4WHFwSsB524ucwUW_vA/edit?usp=sharing)  
 [Presentation Outline](https://drive.google.com/open?id=10oovyY6j0JkVwAiX1C7MBZ-Ag_LYe4o8vJNujiEl9VM)  
 [Presentation Slideshow](https://drive.google.com/open?id=1-2qotWVlbLmG0uRq99uuz2RZFGq66Q35oHHyLhKqcMI)  
+[Sprint 2 UI Video](https://youtu.be/v-gRfFecyvE)  
 
 ## Installation/Requirements
 This project requires Python 3+ and makes use of several frameworks, e.g. Flask, Angular, Keras, etc. It assumes you are using a Unix-based system. You'll also probably need to have ffmpeg installed and accessible on your system. To setup your environment, please make a new virtualenv using `python -m venv venv` and then activate it by using `source venv/bin/activate`. Then, run `pip install -r requirements.txt`. Note that you may need to have numpy installed first, as one of the packages' dependencies requires it; you can do that by running `pip install numpy` first.
