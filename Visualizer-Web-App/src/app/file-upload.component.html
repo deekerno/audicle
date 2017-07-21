@@ -1,4 +1,4 @@
-<div>
+<div class="row">
   <div class="row">
     <div class="col s12">
       <form action="#">
@@ -10,11 +10,18 @@
           <div class="file-path-wrapper">
             <input id="file_upload" class="file-path validate" type="text" placeholder="Upload music files">
           </div>
-          <div>
-            <audio controls [src]="userAudio" id="audioPlayer"></audio>
-          </div>
         </div>
       </form>
     </div>
+  </div>
+  <div class="row">
+    <div class="col s12 left-align">
+      <div class="btn-large waves-effect" type="submit" name="action" (onclick)="sendFile(event)">
+        <i class="material-icons">file_upload</i>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <audio controls [src]="song" id="audioPlayer" (onclick)="showStats($event)"></audio>
   </div>
 </div>
