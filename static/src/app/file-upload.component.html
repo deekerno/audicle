@@ -5,7 +5,7 @@
         <div class="file-field input-field">
           <div class="btn">
             <span>File</span>
-            <input type="file" multiple (change)="onChange($event)">
+            <input id="audio_file" type="file" accept="audio/*" (change)="onChange($event)">
           </div>
           <div class="file-path-wrapper">
             <input id="file_upload" class="file-path validate" type="text" placeholder="Upload music files">
@@ -13,5 +13,8 @@
         </div>
       </form>
     </div>
+  </div>
+  <div class="row">
+    <audio controls [src]="song" id="audioPlayer"></audio>
   </div>
 </div>
