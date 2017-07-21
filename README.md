@@ -11,7 +11,7 @@ Processes of Object-Oriented Development
 [Presentation Outline](https://drive.google.com/open?id=10oovyY6j0JkVwAiX1C7MBZ-Ag_LYe4o8vJNujiEl9VM)  
 [Presentation Slideshow](https://drive.google.com/open?id=1-2qotWVlbLmG0uRq99uuz2RZFGq66Q35oHHyLhKqcMI)  
 [Sprint 2 UI Video](https://youtu.be/v-gRfFecyvE)  
-[Design Documents](https://github.com/adcrn/cop4331/tree/master/Design%20Documents)
+[Design Documents](https://github.com/adcrn/cop4331/tree/master/Design%20Documents)  
 [Vision Statement](https://github.com/adcrn/cop4331/blob/master/Design%20Documents/vision.txt)  
 
 ## Installation/Requirements
