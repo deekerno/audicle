@@ -29,16 +29,20 @@ Second shell:
 1. `export FLASK_APP=server.py`
 2. `flask run`
 
-[add more instructions as we get closer to finishing]
-
 ## Major Components
 * A-Frame - visualisation engine
 * Angular - app frontend
 * Flask - app backend
 * Keras - framework for defining our neural networks
+* Pandas - data wrangling
 * LibROSA - used to generate spectrograms for use in the detection network
 * Tensorflow - underlying engine for Keras
 * YouTube-dl - used to process YouTube links for download
 
 ## Other Stuff
 We used the [Free Music Archive](https://github.com/mdeff/fma) to train the genre detection neural network; the `fma_small` dataset was chosen as it contains a total of 8000 30-second tracks balanced across eight (8) genres, including newly popular ones such as electronic(a).
+
+### Preparing the Backend
+In order to use the model to predict genres, it must first be trained. Before it can be trained, the dataset must be compiled into a pickle for easy passage to the network. Download your preferred flavor of the FMA dataset and extract it to the desired location. After extraction, change the `AUDIO_DIR` variable in `pickler.py` to the root of extracted dataset. Inspect all of the folders for any files that are 1-2 KB large; this is a sign of broken or corrupted files and will cause the script to stop before it dumps the dataset to a pickle. Adjust all the necessary bits and pieces regarding `GENRES`, `genre_to_index`, and `tracks_dict`. Finally, run `python pickler.py` to create a pickle that will be found at `data.pkl`.
+
+After the pickle has been prepared, run `python trainer.py`. The network will automatically split the pickle into training and validation sets, and will train for a user-defined amount of epochs. Upon completion, the model and its weights will be saved to `models.yaml` and `weights.h5` respectively.

@@ -8,7 +8,6 @@ from keras.layers import (
 	Dense,
 	Dropout,
 	Input,
-	Lambda,
 	Layer,
 	LSTM,
 	MaxPooling1D,
@@ -20,6 +19,11 @@ from sklearn.model_selection import train_test_split as tts
 import numpy as np
 import os
 import pickle
+import unittest
+
+class TrainerTest(unittest.TestCase):
+	def test_pickle_exists(self):
+		self.assertTrue(os.path.isfile('data.pkl'), 'Missing data pickle!')
 
 
 SEED = 4331    # random seed for the network
@@ -29,7 +33,7 @@ FILTER_LENGTH = 5
 CONV_FILTER_COUNT = 256
 LSTM_COUNT = 256
 BATCH_SIZE = 32
-EPOCH_COUNT = 50
+EPOCH_COUNT = 100
 
 # This should get the mean over all of the time series
 class Time_Dist_Merge(Layer):
@@ -67,12 +71,11 @@ def trainer(pickle):
 	layer = TimeDistributed(Dense(NUM_GENRES))(layer)
 	layer = Activation('softmax', name='output_realtime')(layer)
 	
-	#time_dist_merge_layer = Lambda(time_dist_merge, name='output_merged')
 	time_dist_merge_layer = Time_Dist_Merge()
 
 	model_output = time_dist_merge_layer(layer)
 	model = Model(model_input, model_output)
-	opt = Adam(lr=0.0001)
+	opt = Adam(lr=0.00001)
 	model.compile(
 		loss='categorical_crossentropy',
 		optimizer=opt,

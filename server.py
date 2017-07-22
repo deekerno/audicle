@@ -12,7 +12,7 @@ import unittest
 import youtube_dl as ytdl
 
 UPLOADS_DEFAULT_DEST = os.path.join(os.path.dirname(__file__), 'uploads')
-YT_DOWNLOADS = os.path.join(os.path.dirname(__file__), 'yt_downloads')
+# YT_DOWNLOADS = os.path.join(os.path.dirname(__file__), 'yt_downloads')
 
 yt_opts = {
     # 256: high ratio of quality:size, and won't affect the spectrogram greatly
@@ -23,20 +23,30 @@ yt_opts = {
         'preferredcodec': 'mp3',
         'preferredquality': '256',
     }]
-}        
+}
 
-def make_stats(song):
-    stats = {
-        'duration' : song.duration,
-        'temp' : song.tempo[0],
-        'tuning' : song.tuning
+def index_to_genre(index):
+    converter = {
+        0 : 'Electronic',
+        1 : 'Experimental',
+        2 : 'Folk',
+        3 : 'Hip-Hop',
+        4 : 'Instrumental',
+        5 : 'International',
+        6 : 'Pop',
+        7 : 'Rock'
     }
-    #stats['duration'] = song.duration
-    #stats['tempo'] = song.tempo[0]
-    #stats['tuning'] = song.tuning
-    #stats['mel_freq'] = song.mel_freq
-    return stats
-    
+
+    return converter.get(index, index)
+
+def genre_stat(filename):
+        song = sound.Sound(filename)
+        song.load_and_gen_obj()
+        stats = make_stats(song)
+        prediction = recognizer.recognize('song.mp3')
+        genre = index_to_genre(prediction)
+        return jsonify({'genre' : genre, 'duration': song.duration, 'tempo' : song.tempo[0], 'tuning' : song.tuning}), 200
+
 
 app = Flask(__name__)
 CORS(app)
@@ -63,7 +73,9 @@ def upload():
         f = songs.save(request.files['song'])
         file = Song(filename=f, user=None)
         file.store()
-        return jsonify({'message': 'File uploaded.'}), 200
+        
+        response = genre_stat(file)
+        return response
 
 
 @app.route('/api/youtube', methods=['GET', 'POST'])
@@ -76,9 +88,5 @@ def youtube():
         with ytdl.YoutubeDL(yt_opts) as ydl:
             ydl.download([song_link])
 
-        song = sound.Sound('song.mp3')
-        song.load_and_gen_obj()
-        stats = make_stats(song)
-        predictions = recognizer.recognize('song.mp3')
-        print(predictions)
-        return jsonify({'duration': song.duration, 'temp' : song.tempo[0], 'tuning' : song.tuning}), 200
+        response = genre_stat('song.mp3')
+        return response
