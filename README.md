@@ -13,6 +13,7 @@ Processes of Object-Oriented Development
 [Sprint 2 UI Video](https://youtu.be/v-gRfFecyvE)  
 [Design Documents](https://github.com/adcrn/cop4331/tree/master/Design%20Documents)  
 [Vision Statement](https://github.com/adcrn/cop4331/blob/master/Design%20Documents/vision.txt)  
+[Demo Video](https://youtu.be/HijtgZWr3LM)  
 
 ## Installation/Requirements
 This project requires Python 3+ and makes use of several frameworks, e.g. Flask, Angular, Keras, etc. It assumes you are using a Unix-based system. You'll also probably need to have ffmpeg installed and accessible on your system. To setup your environment, please make a new virtualenv using `python -m venv venv` and then activate it by using `source venv/bin/activate`. Then, run `pip install -r requirements.txt`. Note that you may need to have numpy installed first, as one of the packages' dependencies requires it; you can do that by running `pip install numpy` first.
