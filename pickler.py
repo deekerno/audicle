@@ -5,11 +5,23 @@ import sklearn as skl
 import sklearn.utils, sklearn.preprocessing, sklearn.decomposition, sklearn.svm
 import pickle
 import sound
+import unittest
 
 AUDIO_DIR = '/media/stuff/fma_small'
 GENRES = ['Electronic', 'Experimental', 'Folk', 'Hip-Hop', 'Instrumental', 'International', 'Pop', 'Rock']
 NUM_TRACKS = 8000
 SAMPLE_FILE = '000002.mp3'
+TRACKS = 'tracks.csv'
+
+class PicklerTest(unittest.TestCase):
+	def test_dataset_exists(self):
+		self.assertTrue(os.path.exists(AUDIO_DIR), 'Missing dataset!')
+
+	def test_sample_exists(self):
+		self.assertTrue(os.path.isfile(SAMPLE_FILE), 'Missing sample file!')
+
+	def test_track_info_exists(self):
+		self.assertTrue(os.path.isfile(TRACKS), 'Missing track information!')
 
 
 def genre_to_index(genre):
@@ -37,7 +49,7 @@ def get_default_shape():
 	return default_shape.shape
 
 # Load information about all tracks
-tracks = pd.read_csv('tracks.csv')
+tracks = pd.read_csv(TRACKS)
 
 # Define parameters in order to filter entire dataset metadata
 tracks_dict = {

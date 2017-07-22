@@ -26,15 +26,25 @@ class Sound(object):
         self.librosa_rep = None
         self.samp_rate = None
         self.duration = None 
+        self.mel_freq = None
+        self.onset_env = None
         self.tempo = None
+        self.tuning = None
         self.spectro = None
         # spectro_human is the human-readable version in case we want to present it
         self.spectro_human = None
 
-def load_and_gen_obj(self):
-    self.librosa_rep, self.samp_rate = lbr.load(self.filename)
-    # ".T" gives the transposed version of the NumPy array
-    self.spectro = lbr.feature.melspectrogram(self.librosa_rep, self.samp_rate, **MEL_KWARGS).T
+    def load_and_gen_obj(self):
+        print("Loading song.")
+        self.librosa_rep, self.samp_rate = lbr.load(self.filename)
+        # ".T" gives the transposed version of the NumPy array
+        self.spectro = lbr.feature.melspectrogram(self.librosa_rep, self.samp_rate, **MEL_KWARGS).T
+        self.duration = lbr.get_duration(self.librosa_rep, self.samp_rate)
+        self.onset_env = lbr.onset.onset_strength(self.librosa_rep, self.samp_rate)
+        self.tempo = lbr.beat.tempo(self.onset_env, self.samp_rate)
+        self.tuning = lbr.estimate_tuning(self.librosa_rep, self.samp_rate)
+        #self.mel_freq = lbr.mel_frequencies(40)
+        print("Features and spectrogram extracted.")
 
 def load_and_gen(filename, given_shape=None):
     librosa_rep, samp_rate = lbr.load(filename, mono=True)

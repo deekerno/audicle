@@ -251,28 +251,15 @@ config:
         - 0
         - {}
     name: output_realtime
-  - class_name: Lambda
-    config:
-      arguments: {}
-      function: !!python/tuple ["\xE3\x01\0\0\0\0\0\0\0\x01\0\0\0\x04\0\0\0S\0\0\0\
-          s\x0E\0\0\0t\0j\x01|\0d\x01d\x02\x8D\x02S\0)\x03N\xE9\x01\0\0\0)\x01\xDA\
-          \x04axis)\x02\xDA\x01K\xDA\x04mean)\x01\xDA\x01x\xA9\0r\x06\0\0\0\xFA\n\
-          trainer.py\xDA\b<lambda><\0\0\0s\0\0\0\0", null, null]
-      function_type: lambda
-      name: output_merged
-      output_shape: !!python/tuple ["\xE3\x01\0\0\0\0\0\0\0\x01\0\0\0\x04\0\0\0S\0\
-          \0\0s\x16\0\0\0|\0d\x01\x19\0f\x01|\0d\x02d\0\N\x02\x19\0\x17\0S\0)\x03\
-          N\xE9\0\0\0\0\xE9\x02\0\0\0\xA9\0)\x01\xDA\x05shaper\x03\0\0\0r\x03\0\0\0\
-          \xFA\ntrainer.py\xDA\b<lambda>=\0\0\0s\0\0\0\0", null, null]
-      output_shape_type: lambda
-      trainable: true
+  - class_name: Time_Dist_Merge
+    config: {name: time__dist__merge_1, trainable: true}
     inbound_nodes:
     - - - output_realtime
         - 0
         - 0
         - {}
-    name: output_merged
+    name: time__dist__merge_1
   name: model_1
   output_layers:
-  - [output_merged, 0, 0]
+  - [time__dist__merge_1, 0, 0]
 keras_version: 2.0.5

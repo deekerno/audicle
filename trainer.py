@@ -1,7 +1,7 @@
 from keras import backend as K
 from keras.callbacks import Callback
 from keras.utils import np_utils
-from keras.models import Model
+from keras.models import model_from_yaml,  Model
 from keras.layers import (
 	Activation,
 	Convolution1D,
@@ -9,6 +9,7 @@ from keras.layers import (
 	Dropout,
 	Input,
 	Lambda,
+	Layer,
 	LSTM,
 	MaxPooling1D,
 	TimeDistributed,
@@ -28,7 +29,18 @@ FILTER_LENGTH = 5
 CONV_FILTER_COUNT = 256
 LSTM_COUNT = 256
 BATCH_SIZE = 32
-EPOCH_COUNT = 100
+EPOCH_COUNT = 50
+
+# This should get the mean over all of the time series
+class Time_Dist_Merge(Layer):
+    def __init__(self, **kwargs):
+        super(Time_Dist_Merge, self).__init__(**kwargs)
+
+    def call(self, x):
+    	return K.mean(x, axis=1)
+
+    def get_config(self):
+    	return super(Time_Dist_Merge, self).get_config()
 
 def trainer(pickle):
 	x = pickle['x']
@@ -54,17 +66,13 @@ def trainer(pickle):
 	layer = Dropout(0.5)(layer)
 	layer = TimeDistributed(Dense(NUM_GENRES))(layer)
 	layer = Activation('softmax', name='output_realtime')(layer)
+	
+	#time_dist_merge_layer = Lambda(time_dist_merge, name='output_merged')
+	time_dist_merge_layer = Time_Dist_Merge()
 
-	# Gonna be real, this is black magic from Github and Stack Overflow.
-	time_dist_merge = Lambda(
-		function=lambda x: K.mean(x, axis=1), 
-		output_shape=lambda shape: (shape[0],) + shape[2:],
-		name='output_merged'
-		)
-
-	model_output = time_dist_merge(layer)
+	model_output = time_dist_merge_layer(layer)
 	model = Model(model_input, model_output)
-	opt = Adam(lr=0.00001)
+	opt = Adam(lr=0.0001)
 	model.compile(
 		loss='categorical_crossentropy',
 		optimizer=opt,
