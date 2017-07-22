@@ -9,20 +9,39 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
-        <!-- <link rel="stylesheet" href="http://localhost:5000/css/materialize.css"> -->
-
-        <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+         <link rel="stylesheet" href="styles.css">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+        <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+        <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
+        <script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
+        <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
     </head>
     <body>
+        <div id="genShow" style="position:absolute;height: 200px;width:200px;z-index:1;"></div>
+        <a-scene vr-mode-ui="enabled: false"><a-camera position="0 0 4"></a-camera>
+          <a-sky></a-sky>
+          <a-entity id="object-container" position="0 1.6 -2" scale=".4 .4 .4"></a-entity>
+          <a-light type="ambient" intensity="0.7" color="#ffffff"></a-light>
+          <a-light intensity="3" color="#00ffff" position="-5.72 6.65 0.80" animation__color="property:color; dir:alternate; dur:2000; easing:easeInOutSine; loop:true; to:#ff0000" alongpath="path:10,10,-10 -20,10,-10 10,0,-10; closed:true; dur:12000"></a-light>
+          <a-light intensity="5" color="#ff0000" position="8.60 6.65 0.80" animation__color="property:color; dir:alternate; dur:2000; easing:easeInOutSine; loop:true; to:#0000ff" alongpath="path:-2,-2,5 2,-1,5 0,-1,5; closed:true; dur:3000;"></a-light>
+      </a-scene>
+
       <app-root></app-root>
+      <script type="text/javascript" src="assets/app.js"></script>
 
       <!--Import jQuery before materialize.js-->
       <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
       <!--materialize.js -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
       <!-- <script src="http://localhost:5000/js/materialize.js"></script> -->
+
+      <script>
+          $('#genShow').click(function() {
+              generateAllElements();
+          });
+      </script>
     </body>
 </html>
